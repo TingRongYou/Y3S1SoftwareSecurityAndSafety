@@ -4,15 +4,15 @@
 
 <div align="center">
 
-&#x20; <h3 align="center">Secure Coding Solutions: British Airways Case Study</h3>
+ <h3 align="center">Secure Coding Solutions: British Airways Case Study</h3>
 
 
 
-&#x20; <p align="center">
+ <p align="center">
 
-&#x20;   Executable Java implementations to mitigate critical security vulnerabilities.
+   Executable Java implementations to mitigate critical security vulnerabilities.
 
-&#x20; </p>
+ </p>
 
 </div>
 
@@ -20,39 +20,37 @@
 
 <details>
 
-&#x20; <summary>Table of Contents</summary>
+ <summary>Table of Contents</summary>
 
-&#x20; <ol>
+ <ol>
 
-&#x20;   <li><a href="#about-the-project">About The Project</a></li>
+   <li><a href="#about-the-project">About The Project</a></li>
 
-&#x20;   <li><a href="#built-with">Built With</a></li>
+   <li><a href="#built-with">Built With</a></li>
 
-&#x20;   <li><a href="#getting-started">Getting Started</a></li>
+   <li><a href="#getting-started">Getting Started</a></li>
 
-&#x20;   <li><a href="#secure-coding-solutions">Secure Coding Solutions</a>
+   <li><a href="#secure-coding-solutions">Secure Coding Solutions</a>
 
-&#x20;     <ul>
+   <ul>
+       <li><a href="#1-secure-credential-hashing">Secure Credential Hashing</a></li>
+   </ul>
 
-&#x20;       <li><a href="#1-secure-credential-hashing">Secure Credential Hashing</a></li>
+   </li>
 
-&#x20;     </ul>
+   <li><a href="#license">License</a></li>
 
-&#x20;   </li>
+   <li><a href="#team">Team</a></li>
 
-&#x20;   <li><a href="#license">License</a></li>
+   <li><a href="#acknowledgments">Acknowledgments</a></li>
 
-&#x20;   <li><a href="#team">Team</a></li>
-
-&#x20;   <li><a href="#acknowledgments">Acknowledgments</a></li>
-
-&#x20; </ol>
+ </ol>
 
 </details>
 
 
 
-\## About The Project
+## About The Project
 
 
 
@@ -60,19 +58,19 @@ This repository contains proof-of-concept (PoC) Java solutions designed to remed
 
 
 
-\## Built With
+## Built With
 
 
 
-\* Java (Standard Edition)
+* Java (Standard Edition)
 
-\* NetBeans IDE
+* NetBeans IDE
 
-\* javax.crypto (PBKDF2/HMAC-SHA256)
+* javax.crypto (PBKDF2/HMAC-SHA256)
 
 
 
-\## Getting Started
+## Getting Started
 
 
 
@@ -80,53 +78,53 @@ To run these solutions, ensure you have the Java Development Kit (JDK) installed
 
 
 
-\### Prerequisites
+### Prerequisites
 
 
 
-\* JDK 8 or higher
+* JDK 8 or higher
 
-\* NetBeans IDE (or any Java-compatible IDE)
-
-
-
-\### Installation
+* NetBeans IDE (or any Java-compatible IDE)
 
 
 
-1\. Clone the repo
+### Installation
 
-&#x20;  ```sh
 
-&#x20;  git clone https://github.com/TingRongYou/Y3S1SoftwareSecurityAndSafety.git
 
-&#x20;  ```
+1. Clone the repo
 
-2\. Open the project folder in NetBeans
+  ```sh
 
-3\. Build and run the `SecureCredentialHashing.java` (or subsequent solution) file to see the PoC output.
+  git clone https://github.com/TingRongYou/Y3S1SoftwareSecurityAndSafety.git
+
+  ```
+
+2. Open the project folder in NetBeans
+
+3. Build and run the `SecureCredentialHashing.java` (or subsequent solution) file to see the PoC output.
 
 
 
 <!-- Secure Coding Solutions -->
 
-\## Secure Coding Solutions
+## Secure Coding Solutions
 
 
 
-\### 1. Secure Credential Hashing
+### 1. Secure Credential Hashing
 
-This solution addresses the \*\*Plaintext Storage of Credentials\*\* vulnerability. It uses the `PBKDF2WithHmacSHA256` algorithm to perform iterative, salted hashing on administrator passwords.
+This solution addresses the **Plaintext Storage of Credentials** vulnerability. It uses the `PBKDF2WithHmacSHA256` algorithm to perform iterative, salted hashing on administrator passwords.
 
 
 
-\*   \*\*Key Security Features:\*\*
+*   **Key Security Features:**
 
-&#x20;   \*   \*\*Cryptographic Salt:\*\* Uses `SecureRandom` (16-byte) to defend against offline dictionary attacks.
+     *   **Cryptographic Salt:** Uses `SecureRandom` (16-byte) to defend against offline dictionary attacks.
 
-&#x20;   \*   \*\*Work Factor:\*\* Implements 600,000 iterations to act as a computational bottleneck against brute-force attempts.
+    *   **Work Factor:** Implements 600,000 iterations to act as a computational bottleneck against brute-force attempts.
 
-&#x20;   \*   \*\*Irreversibility:\*\* Produces a 256-bit hash, ensuring credentials cannot be reversed even if the database is compromised.
+      *   **Irreversibility:** Produces a 256-bit hash, ensuring credentials cannot be reversed even if the database is compromised.
 
 
 
@@ -136,7 +134,7 @@ This solution addresses the \*\*Plaintext Storage of Credentials\*\* vulnerabili
 
 <!-- LICENSE -->
 
-\## License
+## License
 
 
 
@@ -150,21 +148,21 @@ Distributed under the Unlicense License.
 
 <!-- TEAM -->
 
-\## Team
+## Team
 
 
 
-\* Ting Rong You
+* Ting Rong You
 
-\* Yong Chong Xin
+* Yong Chong Xin
 
-\* Lim Wen Liang
+* Lim Wen Liang
 
-\* Anson
+* Anson
 
-\* Wan Zi Kang
+* Wan Zi Kang
 
-\* Nur Aina Lee
+* Nur Aina Lee
 
 
 
@@ -174,15 +172,15 @@ Distributed under the Unlicense License.
 
 <!-- ACKNOWLEDGMENTS -->
 
-\## Acknowledgments
+## Acknowledgments
 
 
 
-\* \[NIST SP 800-63B Digital Identity Guidelines](https://doi.org/10.6028/NIST.SP.800-63b)
+* [NIST SP 800-63B Digital Identity Guidelines](https://doi.org/10.6028/NIST.SP.800-63b)
 
-\* \[OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password\_Storage\_Cheat\_Sheet.html)
+* [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password\_Storage\_Cheat\_Sheet.html)
 
-\* \[OWASP Top 10:2021 - Cryptographic Failures](https://owasp.org/Top10/A02\_2021-Cryptographic\_Failures/)
+* [OWASP Top 10:2021 - Cryptographic Failures](https://owasp.org/Top10/A02\_2021-Cryptographic\_Failures/)
 
 
 
