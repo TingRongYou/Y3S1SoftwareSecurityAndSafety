@@ -31,12 +31,11 @@
    <li><a href="#getting-started">Getting Started</a></li>
 
    <li><a href="#secure-coding-solutions">Secure Coding Solutions</a>
-
-   <ul>
-       <li><a href="#1-secure-credential-hashing">Secure Credential Hashing</a></li>
-   </ul>
-
-   </li>
+      <ul>
+        <li><a href="#1-secure-credential-hashing">Secure Credential Hashing</a></li>
+        <li><a href="#2-subresource-integrity-sri-generator">Subresource Integrity (SRI) Generator</a></li>
+      </ul>
+    </li>
 
    <li><a href="#team">Team</a></li>
 
@@ -56,6 +55,10 @@ This repository contains proof-of-concept (PoC) Java solutions designed to remed
 
 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 ## Built With
 
 
@@ -65,6 +68,10 @@ This repository contains proof-of-concept (PoC) Java solutions designed to remed
 * NetBeans IDE
 
 * javax.crypto (PBKDF2/HMAC-SHA256)
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -104,6 +111,10 @@ To run these solutions, ensure you have the Java Development Kit (JDK) installed
 
 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- Secure Coding Solutions -->
 
 ## Secure Coding Solutions
@@ -123,6 +134,15 @@ This solution addresses the **Plaintext Storage of Credentials** vulnerability. 
     *   **Work Factor:** Implements 600,000 iterations to act as a computational bottleneck against brute-force attempts.
 
       *   **Irreversibility:** Produces a 256-bit hash, ensuring credentials cannot be reversed even if the database is compromised.
+
+### 2. Subresource Integrity (SRI) Generator
+
+This solution addresses the **Malicious Script Injection** vulnerability. It acts as a secure deployment tool that programmatically calculates the cryptographic hash of legitimate JavaScript files to prevent the execution of unauthorized, manipulated code (such as the Magecart digital skimmer).
+
+*   **Key Security Features:**
+    *   **Cryptographic Baseline:** Uses the W3C-recommended `SHA-384` algorithm to create an immutable mathematical fingerprint of the trusted source code prior to deployment.
+    *   **Browser-Level Enforcement:** Generates secure HTML `<script>` tags containing the `integrity` attribute, forcing client browsers to independently verify the file's hash before execution.
+    *   **Server-Side Breach Defense:** Completely neutralizes data exfiltration attempts by blocking script execution if threat actors manage to alter the `.js` files on the compromised server.
 
 
 
@@ -158,13 +178,10 @@ This solution addresses the **Plaintext Storage of Credentials** vulnerability. 
 
 ## Acknowledgments
 
-
-
 * [NIST SP 800-63B Digital Identity Guidelines](https://doi.org/10.6028/NIST.SP.800-63b)
-
-* [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password\_Storage\_Cheat\_Sheet.html)
-
-* [OWASP Top 10:2021 - Cryptographic Failures](https://owasp.org/Top10/A02\_2021-Cryptographic\_Failures/)
+* [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+* [OWASP Top 10:2021 - Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
+* [W3C Subresource Integrity Specification](https://www.w3.org/TR/SRI/)
 
 
 
