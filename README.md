@@ -35,6 +35,7 @@
         <li><a href="#1-secure-credential-hashing">Secure Credential Hashing</a></li>
         <li><a href="#2-subresource-integrity-sri-generator">Subresource Integrity (SRI) Generator</a></li>
         <li><a href="#3-content-security-policy-csp-generator">Content Security Policy (CSP) Generator</a></li>
+        <li><a href="#4-multi-factor-authentication-mfa-simulator">Multi-Factor Authentication (MFA) Simulator</a></li>
       </ul>
     </li>
 
@@ -153,6 +154,15 @@ This solution addresses the **Unrestricted Data Exfiltration (Security Misconfig
     *   **Restricting Data Transmission (`connect-src`):** Instructs the browser to only permit outbound data transmissions to the origin server or the official API, strictly blocking data exfiltration to unauthorized domains.
     *   **Restricting Execution Sources (`script-src`):** Creates an explicit whitelist of trusted domains, ensuring the browser refuses to load malicious external scripts.
     *   **Preventing Protocol Downgrades (`block-all-mixed-content`):** Ensures secure HTTPS pages do not load resources over unencrypted HTTP connections, preventing Man-in-the-Middle (MitM) attacks.
+  
+### 4. Multi-Factor Authentication (MFA) Simulator
+
+This solution addresses the **Absence of Multi-Factor Authentication (MFA) on Remote Gateways** vulnerability. It simulates a secure backend mechanism that mandates a secondary authentication layer for internal and third-party access gateways.
+
+*   **Key Security Features:**
+    *   **Cryptographic Entropy:** Utilizes Java's `SecureRandom` class to generate a non-deterministic 6-digit One-Time Password (OTP) leveraging the operating system's internal entropy pool.
+    *   **Time-to-Live (TTL) Expiration:** Enforces a strict 60-second expiration window to automatically invalidate the OTP, directly mitigating Replay Attacks.
+    *   **Brute-Force Rate Limiting:** Implements a maximum attempt threshold (3 attempts) that temporarily locks the authentication thread to prevent automated script guessing.
 
 
 
