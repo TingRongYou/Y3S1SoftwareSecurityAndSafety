@@ -19,7 +19,7 @@ import javax.crypto.spec.PBEKeySpec;
 public class SecureCredentialHashing {
     
     // Define security parameters recommended by OWASP and NIST 
-    private static final int ITERATIONS = 310000; // High iteration count slows down brute-force attacks
+    private static final int ITERATIONS = 600000; // High iteration count slows down brute-force attacks
     public static final int KEY_LENGTH = 256; // 256-bit hash length
     public static final int SALT_LENGTH = 16; // 16-byte cryptographic salt
 
@@ -35,7 +35,7 @@ public class SecureCredentialHashing {
             // Step 1: Generate a cryptographically secure random salt
             byte[] salt = generateSalt();
             String encodedSalt = Base64.getEncoder().encodeToString(salt);
-            System.out.println("\n[Secure] Step 1: Generated 16-byte Cryptographic Salt: " + encodedSalt);
+            System.out.println("\n[SECURE] Step 1: Generated 16-byte Cryptographic Salt: " + encodedSalt);
             
             // Step 2: Hash the password using PBKDF2
             byte[] hashedPassword = hashPassword(plaintextAdminPassword.toCharArray(), salt);
@@ -43,7 +43,7 @@ public class SecureCredentialHashing {
             System.out.println("[SECURE] Step 2: Generated PBKDF2 Hash: " + encodedHash);
             
             // Step 3: Database Storage Simulation
-            System.out.println("\n[Success] The database will now store the salt and the hash");
+            System.out.println("\n[SUCCESS] The database will now store the salt and the hash");
             System.out.println("Even if the database is breached, the attackers cannot reverse the hash to find original password");
             
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
