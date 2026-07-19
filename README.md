@@ -38,8 +38,6 @@
 
    </li>
 
-   <li><a href="#license">License</a></li>
-
    <li><a href="#team">Team</a></li>
 
    <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -125,20 +123,6 @@ This solution addresses the **Plaintext Storage of Credentials** vulnerability. 
     *   **Work Factor:** Implements 600,000 iterations to act as a computational bottleneck against brute-force attempts.
 
       *   **Irreversibility:** Produces a 256-bit hash, ensuring credentials cannot be reversed even if the database is compromised.
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-
-## License
-
-
-
-Distributed under the Unlicense License.
 
 
 
