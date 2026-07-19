@@ -36,6 +36,7 @@
         <li><a href="#2-subresource-integrity-sri-generator">Subresource Integrity (SRI) Generator</a></li>
         <li><a href="#3-content-security-policy-csp-generator">Content Security Policy (CSP) Generator</a></li>
         <li><a href="#4-multi-factor-authentication-mfa-simulator">Multi-Factor Authentication (MFA) Simulator</a></li>
+        <li><a href="#5-role-based-access-control-rbac-simulator">Role-Based Access Control (RBAC) Simulator</a></li>
       </ul>
     </li>
 
@@ -63,13 +64,11 @@ This repository contains proof-of-concept (PoC) Java solutions designed to remed
 
 ## Built With
 
-
-
-* Java (Standard Edition)
-
-* NetBeans IDE
-
-* javax.crypto (PBKDF2/HMAC-SHA256)
+*   **Java (Standard Edition):** Core programming language used for all Proof of Concept (PoC) solutions.
+*   **NetBeans IDE:** Integrated Development Environment used for compiling and executing the standalone programs.
+*   **`javax.crypto`:** Utilized for advanced key generation (`PBKDF2WithHmacSHA256`) in the Secure Credential Hashing solution.
+*   **`java.security`:** Utilized for cryptographic hashing (`MessageDigest` / SHA-384) in the SRI Generator, and for generating non-deterministic entropy (`SecureRandom`) in the MFA and Hashing simulators.
+*   **`java.util.Base64`:** Utilized to properly encode the cryptographic byte arrays into valid HTML attributes for the SRI tags.
 
 
 
@@ -164,6 +163,15 @@ This solution addresses the **Absence of Multi-Factor Authentication (MFA) on Re
     *   **Time-to-Live (TTL) Expiration:** Enforces a strict 60-second expiration window to automatically invalidate the OTP, directly mitigating Replay Attacks.
     *   **Brute-Force Rate Limiting:** Implements a maximum attempt threshold (3 attempts) that temporarily locks the authentication thread to prevent automated script guessing.
 
+### 5. Role-Based Access Control (RBAC) Simulator
+
+This solution addresses the **Ineffective Role-Based Access Control (RBAC) and Privilege Escalation** vulnerability. It acts as a secure backend Authorization Controller that prevents unauthorized lateral movement within the network.
+
+*   **Key Security Features:**
+    *   **Immutable Role Definitions:** Categorizes accounts explicitly (e.g., Admin vs. Third-Party Vendor) using rigid enumeration to prevent runtime manipulation.
+    *   **Principle of Least Privilege (PoLP):** Defaults to a "deny-all" state, verifying that an account holds the exact required administrative role before permitting write-access to sensitive production files.
+    *   **Lateral Movement Prevention:** Completely breaks the attack chain by preventing external or standard accounts from breaking out of their authorized micro-segments to modify web assets.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -182,7 +190,7 @@ This solution addresses the **Absence of Multi-Factor Authentication (MFA) on Re
 
 * Lim Wen Liang
 
-* Anson
+* Anson Chang
 
 * Wan Zi Kang
 
