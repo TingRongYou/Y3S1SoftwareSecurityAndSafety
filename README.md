@@ -34,6 +34,7 @@
       <ul>
         <li><a href="#1-secure-credential-hashing">Secure Credential Hashing</a></li>
         <li><a href="#2-subresource-integrity-sri-generator">Subresource Integrity (SRI) Generator</a></li>
+        <li><a href="#3-content-security-policy-csp-generator">Content Security Policy (CSP) Generator</a></li>
       </ul>
     </li>
 
@@ -144,6 +145,15 @@ This solution addresses the **Malicious Script Injection** vulnerability. It act
     *   **Browser-Level Enforcement:** Generates secure HTML `<script>` tags containing the `integrity` attribute, forcing client browsers to independently verify the file's hash before execution.
     *   **Server-Side Breach Defense:** Completely neutralizes data exfiltration attempts by blocking script execution if threat actors manage to alter the `.js` files on the compromised server.
 
+### 3. Content Security Policy (CSP) Generator
+
+This solution addresses the **Unrestricted Data Exfiltration (Security Misconfiguration)** vulnerability. It simulates a backend middleware component that programmatically generates and injects a strict CSP HTTP header into all outbound web server responses.
+
+*   **Key Security Features:**
+    *   **Restricting Data Transmission (`connect-src`):** Instructs the browser to only permit outbound data transmissions to the origin server or the official API, strictly blocking data exfiltration to unauthorized domains.
+    *   **Restricting Execution Sources (`script-src`):** Creates an explicit whitelist of trusted domains, ensuring the browser refuses to load malicious external scripts.
+    *   **Preventing Protocol Downgrades (`block-all-mixed-content`):** Ensures secure HTTPS pages do not load resources over unencrypted HTTP connections, preventing Man-in-the-Middle (MitM) attacks.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -175,13 +185,15 @@ This solution addresses the **Malicious Script Injection** vulnerability. It act
 
 
 <!-- ACKNOWLEDGMENTS -->
-
 ## Acknowledgments
 
 * [NIST SP 800-63B Digital Identity Guidelines](https://doi.org/10.6028/NIST.SP.800-63b)
 * [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 * [OWASP Top 10:2021 - Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 * [W3C Subresource Integrity Specification](https://www.w3.org/TR/SRI/)
+* [W3C Content Security Policy Level 3](https://www.w3.org/TR/CSP3/)
+* [OWASP Top 10:2021 - Security Misconfiguration](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/)
+* [PCI SSC Bulletin on the Threat of Online Skimming](https://listings.pcisecuritystandards.org/pdfs/PCISSC_Magecart_Bulletin_RHISAC_FINAL.pdf)
 
 
 
