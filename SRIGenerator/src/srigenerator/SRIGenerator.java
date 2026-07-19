@@ -46,7 +46,7 @@ public class SRIGenerator {
      * Calculates the SHA-384 hash of the provided content and formats it for SRI.
      */
     public static String generateSRIHash(String content) throws NoSuchAlgorithmException {
-        // The W3C standard strongly suggest SHA-384 for SRI Implementations
+        // The W3C standard recommend SHA-384 as a "good-baseline" for SRI Implementations
         MessageDigest digest = MessageDigest.getInstance("SHA-384");
         byte[] hashBytes = digest.digest(content.getBytes());
         
