@@ -1,0 +1,22 @@
+# NetBeans project files
+nbproject/private/
+nbproject/Makefile-*
+nbproject/Package-*.properties
+build/
+dist/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# Compiled Java files
+*.class
+
+# IDE configurations
+.settings/
+.project
+.classpath
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
