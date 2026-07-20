@@ -134,7 +134,14 @@ This solution addresses the **Plaintext Storage of Credentials** vulnerability. 
 
     *   **Work Factor:** Implements 600,000 iterations to act as a computational bottleneck against brute-force attempts.
 
-      *   **Irreversibility:** Produces a 256-bit hash, ensuring credentials cannot be reversed even if the database is compromised.
+    *   **Irreversibility:** Produces a 256-bit hash, ensuring credentials cannot be reversed even if the database is compromised.
+
+    <div align="center">
+      <a href="docs/img/SecureCredentialHashingOutput.png">
+       <img src="docs/img/SecureCredentialHashingOutput.png" alt="Secure_Credential_Hashing" width="800" height="200">
+       </a>
+      <h3 align="center">Secure Credential Hashing Output</h3>
+    </div>
 
 ### 2. Subresource Integrity (SRI) Generator
 
@@ -145,6 +152,13 @@ This solution addresses the **Malicious Script Injection** vulnerability. It act
     *   **Browser-Level Enforcement:** Generates secure HTML `<script>` tags containing the `integrity` attribute, forcing client browsers to independently verify the file's hash before execution.
     *   **Server-Side Breach Defense:** Completely neutralizes data exfiltration attempts by blocking script execution if threat actors manage to alter the `.js` files on the compromised server.
 
+    <div align="center">
+      <a href="docs/img/SRIGeneratorOutput.png">
+       <img src="docs/img/SRIGeneratorOutput.png" alt="SRI_Generator_Output" width="800" height="250">
+      </a>
+      <h3 align="center">SRI Generator Output</h3>
+    </div>
+
 ### 3. Content Security Policy (CSP) Generator
 
 This solution addresses the **Unrestricted Data Exfiltration (Security Misconfiguration)** vulnerability. It simulates a backend middleware component that programmatically generates and injects a strict CSP HTTP header into all outbound web server responses.
@@ -153,6 +167,13 @@ This solution addresses the **Unrestricted Data Exfiltration (Security Misconfig
     *   **Restricting Data Transmission (`connect-src`):** Instructs the browser to only permit outbound data transmissions to the origin server or the official API, strictly blocking data exfiltration to unauthorized domains.
     *   **Restricting Execution Sources (`script-src`):** Creates an explicit whitelist of trusted domains, ensuring the browser refuses to load malicious external scripts.
     *   **Preventing Protocol Downgrades (`block-all-mixed-content`):** Ensures secure HTTPS pages do not load resources over unencrypted HTTP connections, preventing Man-in-the-Middle (MitM) attacks.
+
+    <div align="center">
+      <a href="docs/img/CSPHeaderGeneratorOutput.png">
+      <img src="docs/img/CSPHeaderGeneratorOutput.png" alt="CSP_Header_Generator_Output" width="800" height="200">
+      </a>
+      <h3 align="center">CSP Header Generator Output</h3>
+    </div>
   
 ### 4. Multi-Factor Authentication (MFA) Simulator
 
@@ -163,6 +184,27 @@ This solution addresses the **Absence of Multi-Factor Authentication (MFA) on Re
     *   **Time-to-Live (TTL) Expiration:** Enforces a strict 60-second expiration window to automatically invalidate the OTP, directly mitigating Replay Attacks.
     *   **Brute-Force Rate Limiting:** Implements a maximum attempt threshold (3 attempts) that temporarily locks the authentication thread to prevent automated script guessing.
 
+    <div align="center">
+      <a href="docs/img/MFAOTPSuccess.png">
+      <img src="docs/img/MFAOTPSuccess.png" alt="MFA_OTP_Success" width="800" height="350">
+      </a>
+      <h3 align="center">MFA OTP Success</h3>
+    </div>
+
+    <div align="center">
+      <a href="docs/img/MFAOTPExpiration.png">
+      <img src="docs/img/MFAOTPExpiration.png" alt="MFA_OTP_Expiration" width="800" height="350">
+      </a>
+      <h3 align="center">MFA OTP Expiration</h3>
+    </div>
+
+    <div align="center">
+      <a href="docs/img/MFAOTPBruteForceAttempt.png">
+      <img src="docs/img/MFAOTPBruteForceAttempt.png" alt="MFA_OTP_BruteForceAttempt" width="800" height="350">
+      </a>
+      <h3 align="center">MFA OTP Brute Force Attempt</h3>
+    </div>
+
 ### 5. Role-Based Access Control (RBAC) Simulator
 
 This solution addresses the **Ineffective Role-Based Access Control (RBAC) and Privilege Escalation** vulnerability. It acts as a secure backend Authorization Controller that prevents unauthorized lateral movement within the network.
@@ -171,6 +213,13 @@ This solution addresses the **Ineffective Role-Based Access Control (RBAC) and P
     *   **Immutable Role Definitions:** Categorizes accounts explicitly (e.g., Admin vs. Third-Party Vendor) using rigid enumeration to prevent runtime manipulation.
     *   **Principle of Least Privilege (PoLP):** Defaults to a "deny-all" state, verifying that an account holds the exact required administrative role before permitting write-access to sensitive production files.
     *   **Lateral Movement Prevention:** Completely breaks the attack chain by preventing external or standard accounts from breaking out of their authorized micro-segments to modify web assets.
+
+    <div align="center">
+      <a href="docs/img/RBACControllerOutput.png">
+      <img src="docs/img/RBACControllerOutput.png" alt="RBAC_Controller_Output" width="800" height="350">
+      </a>
+      <h3 align="center">RBAC Controller Output</h3>
+    </div>
 
 
 
